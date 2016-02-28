@@ -14,7 +14,7 @@ gulp.task('inject', function() {
 })
 
 gulp.task('concat', function() {
-  return gulp.src(bowerFiles())
+  return gulp.src(bowerFiles(), {read: false}), { name: 'bower' }
     .pipe(concat('vendor.js'))
     .pipe(gulp.dest('./app/dist/'));
 });

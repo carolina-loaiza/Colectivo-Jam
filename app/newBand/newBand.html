@@ -10,7 +10,8 @@
         <input type="text" name="password" value="" required="required" ng-model="band.password"/>
         </br>
         <label for="image">Photo/Logo: <span class="required">*</span></label>
-        <input type="text" name="image" value="" required="required" ng-model="band.image"/>
+        <input type="file" name="image" id="file_input" value="" required="required"/>
+        <input type="hidden" id="avatar_url" name="avatar_url" value="assets/default.png" ng-model="band.image"/>
         </br>
         <label for="intro">Intro: <span class="required">*</span></label>
         <textarea name="intro" placeholder="About" required="required" ng-model="band.intro"></textarea>
@@ -24,13 +25,6 @@
         <label for="telephone">Telephone: </label>
         <input type="tel" name="telephone" ng-model="band.telephone"/>
         </br>
-        <h3>Social Media</h3>
-        <label for="social">Add: </label>
-        <select name="social">
-            <option value="facebook">Facebook</option>
-            <option value="twitter">Twitter</option>
-            <option value="youtube">Youtube</option>
-        </select></br>
         <input type="submit" ng-click="newBand.add(band)" value="Save" />
         <p id="req-field-desc"><span class="required">*</span> indicates a required field</p>
     </form>
