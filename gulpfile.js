@@ -1,13 +1,8 @@
 var gulp = require('gulp'),
   bowerFiles = require('main-bower-files'),
   angularFilesort = require('gulp-angular-filesort'),
-  inject = require('gulp-inject')
-
-/*gulp.task('bower', function() {
-  gulp.src('./src/index.html')
-    .pipe(inject(gulp.src(bowerFiles(), {read: false}), {name: 'bower'}))
-    .pipe(gulp.dest('./app'));
-});*/
+  inject = require('gulp-inject'),
+  concat = require('gulp-concat');
 
 gulp.task('inject', function() {
   gulp.src('./app/index.html')
@@ -17,3 +12,9 @@ gulp.task('inject', function() {
     ))
     .pipe(gulp.dest('./app'));
 })
+
+gulp.task('concat', function() {
+  return gulp.src(bowerFiles())
+    .pipe(concat('vendor.js'))
+    .pipe(gulp.dest('./app/dist/'));
+});
