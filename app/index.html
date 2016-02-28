@@ -1,0 +1,37 @@
+<html lang="EN" ng-app="colectivo">
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Colectivo Jam</title>
+		<link href='http://fonts.googleapis.com/css?family=Biryani' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/styles.css"> -->	
+  </head>
+	<body>
+		<main-nav></main-nav>
+    <div ui-view></div>
+    <main-footer></main-footer>
+
+	<!-- bower:js -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/json3/lib/json3.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="app.js"></script>
+  <script src="common/service/data.service.js"></script>
+  <script src="common/navbar/navbar.directive.js"></script>
+  <script src="common/navbar/navbar.controller.js"></script>
+  <script src="common/footer/footer.directive.js"></script>
+  <script src="logIn/login.controller.js"></script>
+  <script src="newBand/newBand.controller.js"></script>
+  <script src="main/main.controller.js"></script>
+  <!-- endinject -->
+	</body>
+</html>
