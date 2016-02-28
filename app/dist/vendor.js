@@ -32259,42 +32259,6 @@ angular.module('ngSanitize').filter('linky', ['$sanitize', function($sanitize) {
 
 })(window, window.angular);
 
-/*!
- *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
- *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
- */
-
-@import "variables.less";
-@import "mixins.less";
-@import "path.less";
-@import "core.less";
-@import "larger.less";
-@import "fixed-width.less";
-@import "list.less";
-@import "bordered-pulled.less";
-@import "animated.less";
-@import "rotated-flipped.less";
-@import "stacked.less";
-@import "icons.less";
-
-/*!
- *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
- *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
- */
-
-@import "variables";
-@import "mixins";
-@import "path";
-@import "core";
-@import "larger";
-@import "fixed-width";
-@import "list";
-@import "bordered-pulled";
-@import "animated";
-@import "rotated-flipped";
-@import "stacked";
-@import "icons";
-
 /**
  * @license
  * Lo-Dash 2.4.2 (Custom Build) <https://lodash.com/>
