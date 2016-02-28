@@ -1,5 +1,5 @@
 {
-  "name": "Colectivo Jam",
+  "name": "colectivo-jam",
   "version": "1.0.0",
   "description": "Musica Nacional",
   "main": "app.js",
@@ -13,7 +13,7 @@
   "author": "carolina",
   "license": "MIT",
   "engines": {
-    "node": ">=0.12.0"
+    "node": "4.2.4"
   },
   "devDependencies": {
     "babel-core": "^5.5.6",
