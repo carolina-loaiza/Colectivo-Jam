@@ -9,4 +9,6 @@ router.post('/add', controller.create);
 
 router.post('/login', controller.login);
 
+router.get('/sign_s3', controller.signed);
+
 module.exports = router;

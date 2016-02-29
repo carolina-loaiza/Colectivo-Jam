@@ -25,7 +25,21 @@
         <label for="telephone">Telephone: </label>
         <input type="tel" name="telephone" ng-model="band.telephone"/>
         </br>
-        <input type="submit" ng-click="newBand.add(band)" value="Save" />
+        <label for="telephone">Social Media Links: </label>
+        </br>
+        <label><input type="checkbox" ng-model="facebook" value="facebook">Facebook</label>
+        <input type="text" ng-show="facebook" name="facebook" ng-model="social.facebook"/>
+        </br>
+        <label><input type="checkbox" ng-model="twitter" value="twitter">Twitter</label>
+        <input type="text" ng-show="twitter" name="twitter" ng-model="social.twitter"/>
+        </br>
+        <label><input type="checkbox" ng-model="youtube" value="youtube">Youtube</label>
+        <input type="text" ng-show="youtube" name="youtube" ng-model="social.youtube"/>
+        </br>
+        <label><input type="checkbox" ng-model="website" value="website">Website</label>
+        <input type="text" ng-show="website" name="website" ng-model="social.website"/>
+        </br>
+        <input type="submit" ng-click="newBand.add(band, social)" value="Save" />
         <p id="req-field-desc"><span class="required">*</span> indicates a required field</p>
     </form>
 </div>

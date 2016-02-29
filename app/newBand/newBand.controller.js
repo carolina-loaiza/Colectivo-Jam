@@ -11,37 +11,30 @@
         
         vm.band = {};
 
-        function get_signed_request(file){
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "/sign_s3?file_name="+file.name+"&file_type="+file.type);
-            xhr.onreadystatechange = function(){
-                if(xhr.readyState === 4){
-                    if(xhr.status === 200){
-                        var response = JSON.parse(xhr.responseText);
-                        console.log(file, response.signed_request, response.url);
-                        //upload_file(file, response.signed_request, response.url);
-                    }
-                    else{
-                        alert("Could not get signed URL.");
-                    }
-                }
-            };
-            xhr.send();
-        }
-
-        vm.add = function(band) {
-            //
+        vm.add = function(band, social) {
+            // If file exist
             var files = document.getElementById("file_input").files;
             var file = files[0];
             if(file == null){
                 alert("No file selected.");
                 return;
             }
-            get_signed_request(file);
 
-            //
             vm.band = angular.copy(band);
+            vm.band.social = angular.copy(social);
             console.log(vm.band);
+            /*
+            reqService.signed(file)
+            .success(function(data) {
+                vm.band.url = data.url;
+                reqService.create(vm.band)
+                console.log(vm.band);
+                reqService.put(file, data);
+            })
+            .error(function(err) {
+                console.log(err);
+            });
+            */
             /*
             reqService.create(vm.band)
             .success(function(data) {
