@@ -2,7 +2,19 @@ var gulp = require('gulp'),
   bowerFiles = require('main-bower-files'),
   angularFilesort = require('gulp-angular-filesort'),
   inject = require('gulp-inject'),
-  concat = require('gulp-concat');
+  concat = require('gulp-concat'),
+  sass = require('gulp-sass');
+
+gulp.task('styles', function() {
+  gulp.src('./app/assets/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('app/assets/styles'))
+});
+
+//Watch task
+gulp.task('sass',function() {
+    gulp.watch('./app/assets/*.scss',['styles']);
+});
 
 gulp.task('inject', function() {
   gulp.src('./app/index.html')

@@ -4,10 +4,9 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Colectivo Jam</title>
-		<link href='https://fonts.googleapis.com/css?family=Biryani' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" type="text/css" href="css/styles.css"> -->	
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/style.css">
   </head>
 	<body>
 		<main-nav></main-nav>
@@ -19,8 +18,13 @@
    endinject -->
 	<!-- bower:js  -->
   <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+  <script src="bower_components/angular-material/angular-material.min.js"></script> 
   <script src="bower_components/json3/lib/json3.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/ngstorage/ngstorage.js"></script>
   <script src="bower_components/angular-cookies/angular-cookies.js"></script>
   <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
   <script src="bower_components/lodash/dist/lodash.compat.js"></script>
@@ -28,12 +32,14 @@
   <!-- endinject -->
   <!-- inject:js -->
   <script src="app.js"></script>
+  <script src="theme.js"></script>
   <script src="common/service/data.service.js"></script>
   <script src="common/navbar/navbar.directive.js"></script>
   <script src="common/navbar/navbar.controller.js"></script>
   <script src="common/footer/footer.directive.js"></script>
   <script src="logIn/login.controller.js"></script>
   <script src="newBand/newBand.controller.js"></script>
+  <script src="newAlbum/newAlbum.controller.js"></script>
   <script src="main/main.controller.js"></script>
   <!-- endinject -->
 	</body>

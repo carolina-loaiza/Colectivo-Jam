@@ -1,11 +1,12 @@
 // Band Model Controller
 
 var aws = require('aws-sdk');
-var Band = require('./model/band-model.js')
+var Band = require('./band-model.js');
+
 // AWS ACCESS
-var AWS_ACCESS_KEY = 'AKIAJ26X5X36MUD3GMQQ';
-var AWS_SECRET_KEY = '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';
-var S3_BUCKET = 'colectivo-media';
+var AWS_ACCESS_KEY;
+var AWS_SECRET_KEY;
+var S3_BUCKET;
 
 // Create Band Image Url
 module.exports.signed = function(req, res) {
@@ -50,7 +51,9 @@ module.exports.create = function(req, res) {
 // Log In Band
 module.exports.login = function(req, res) {
 
-    Band.findOne({name: req.body.name}, function(err, user) {
+    Band.findOne({name: req.body.name})
+        .populate('albums')
+        .exec(function(err, user) {
         if(user === null) {
             res.status(500).send("Band not found");
         }else {
@@ -59,9 +62,23 @@ module.exports.login = function(req, res) {
                     res.status(500).send("Password dont match")
                 }
                 if (isMatch) {
+                    user.password = undefined;
                     res.json(user);
                 }
             })
+        }
+    })
+};
+
+module.exports.addAlbum = function(req, res) {
+    console.log(req.body);
+    Band.findOne({_id: req.body.id}, function (err, user){
+        if(user === null) {
+            res.status(500).send("Not found");
+        }else {
+            user.albums.push(req.body.album)
+            user.save();
+            res.send('todo bien');
         }
     })
 };

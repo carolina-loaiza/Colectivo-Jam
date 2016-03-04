@@ -1,12 +1,34 @@
-<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarController">
-  <div class="container">
-      <ul class="nav navbar-nav navbar-right">
-        <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Sign up</a></li>
-        <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="main.login">Login</a></li>
-        <li ng-show="nav.isLoggedIn()"><p class="navbar-text">Hello {{ nav.getCurrentUser().name }}</p> </li>
-        <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li>
-        <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">Logout</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
+<header class="header" id="header">
+  <nav class="header-nav">
+    <h1 class="header-logo">elColectivo</h1>
+    <ul>
+      <li>Search</li>
+      <li ng-hide="nav.logIn"><a ui-sref="signup">Sign up</a></li>
+      <li ng-hide="nav.logIn"><button ng-click="nav.showHide()">Log In</button></li>
+      <li ng-show="nav.islogged" class="nav-account">Your Account
+        <ul>
+          <li><a ui-sref="album">Add Album</a></li>
+          <li><a ui-sref="edit">Edit</a></li>
+          <li><button ng-click="nav.logOut()">Log Out</button></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <section id="login-form" class="submit-form login-form hidden">
+    <h2>Log In</h2>
+    <form name="loginForm" novalidate>
+      <md-input-container class="md-block">
+        <label>Nombre de la Banda/Artista</label>
+        <input required name="bandName" ng-model="session.name" />
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label>Contraseña</label>
+        <input required name="password" type="password" ng-model="session.password" />
+      </md-input-container>
+      <md-button ng-click="nav.login(session)" ng-disabled="!loginForm.$valid">Log In</md-button>
+      <a class="header-link" ui-sref="signup">Sign up</a>
+    </form>
+  </section>
+
+</header>

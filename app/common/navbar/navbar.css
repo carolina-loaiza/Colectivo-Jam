@@ -1,0 +1,66 @@
+.header-logo {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+.header-nav {
+    padding: 2%;
+
+    ul {
+        text-align: right;
+    }
+
+    li {
+        padding: 0 15px;
+        line-height: 30px;
+        &:hover {
+            border-bottom: 1px solid $lightColor;
+        }
+    }
+
+    li,
+    a,
+    button {
+        font-size: 1.2rem;
+        color: $lightColor;
+    }
+}
+
+.nav-login-visible {
+    height: 380px;
+}
+
+.header-link {
+  font-size: 1rem;
+  padding: 0 15px;
+  line-height: 30px;
+  text-transform: uppercase;
+  &:hover {
+    border-bottom: 1px solid $lightColor;
+  }
+}
+
+.login-form {
+    background: $darkMain;
+}
+
+.nav-account {
+    li {
+        display: block;
+    }
+
+    ul {
+        background: #BB4744;
+        height: 0;
+        transition: 0.3s ease-out height;
+        overflow: hidden;
+        position: absolute;
+    }
+
+    &:hover ul {
+        height: 100px;
+    }
+}

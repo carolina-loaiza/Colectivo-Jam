@@ -1,0 +1,25 @@
+//
+// Mixins
+//
+
+// font-size mixin
+@mixin font-size($size) {
+	font-size: $size + px;
+	font-size: ($size / 10) + rem;
+}
+
+// sprite mixin
+// usage example:
+// @include sprite(red, $x: center, $y: -589px);
+@mixin sprite($color, $x, $y, $image: "$sprite-image") {
+	background: $color url($image + ".png");
+	background-image: url($image + ".svg"), none;
+	background-position: $x $y;
+	background-repeat: no-repeat;
+}
+
+// sprite reset omega margin columns
+@mixin omega-reset($nth) {
+	&:nth-child(#{$nth}) { margin-right: flex-gutter(); }
+	&:nth-child(#{$nth}+1) { clear: none }
+}

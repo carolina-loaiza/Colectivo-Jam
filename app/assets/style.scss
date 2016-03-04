@@ -1,0 +1,25 @@
+//
+
+// Bibliotecas
+@import "../bower_components/bourbon/dist/bourbon";
+@import "../bower_components/neat/app/assets/stylesheets/neat";
+
+
+// Reset
+
+@import "partials/normalize";
+
+// Parciales
+
+@import "partials/variables";
+@import "partials/mixins";
+@import "partials/placeholders";
+@import "partials/base";
+@import "partials/layout";
+
+// Modules
+@import "../common/navbar/navbar";
+@import "../common/footer/footer";
+@import "../main/main";
+@import "../newBand/newBand";
+@import "../newAlbum/newAlbum";

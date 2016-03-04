@@ -1,0 +1,110 @@
+/*
+ * Rules for base elements
+ */
+
+body {
+  font-size: 62.5%;
+	margin: 0;
+}
+
+a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: $lightColor;
+}
+
+input {
+  color: $lightColor;
+}
+
+input,
+label {
+  font-size: 1.2rem;
+}
+
+button {
+	border: 0;
+  padding: 0;
+  background: none;
+}
+
+header {
+  background-color: $mainColor;
+  height: 85px;
+  overflow: hidden;
+  color: #fff;
+  transition: 0.5s ease-out height;
+}
+
+h2 {
+  font-size: 3.5rem;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+img {
+  width: 100%;
+}
+
+li {
+  display: inline-block;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.md-errors-spacer {
+  display: none;
+}
+
+a:active,
+a:focus,
+button:active,
+button:focus,
+input:active
+input:focus {
+  outline: none;
+}
+
+md-input-container.md-default-theme label, 
+md-input-container label, 
+md-input-container.md-default-theme .md-placeholder, 
+md-input-container .md-placeholder {
+  text-shadow: none;
+}
+
+md-input-container .md-input {
+  margin-bottom: 4%;
+}
+
+.submit-form {
+  padding: 3% 20% 2% 20%;
+
+  h2 {
+    color: $lightColor;
+    font-size: 3rem;
+    float: left;
+    margin: 0;
+  }
+
+  form {
+    margin-left: 24%
+  }
+
+  .md-button {
+    background: $btnInActive;
+    font-size: 1rem;
+    &:hover {
+      background: $btnActive;  
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}

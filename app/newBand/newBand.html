@@ -1,45 +1,65 @@
-<h1>New Band</h1>
-<div id="contact-form" class="clearfix">
+<section class="submit-form signUp-form">
+    <h2>Sign Up</h2>
     <form name="bandForm">
-        <h3>User log in info: </h3>
-        <h3>Banda</h3>
-        <label for="name">Name Band: <span class="required">*</span></label>
-        <input type="text" name="name" value="" required="required" ng-model="band.name"/>
-        </br>
-        <label for="password">Password: <span class="required">*</span></label>
-        <input type="text" name="password" value="" required="required" ng-model="band.password"/>
-        </br>
-        <label for="image">Photo/Logo: <span class="required">*</span></label>
-        <input type="file" name="image" id="file_input" value="" required="required"/>
-        <input type="hidden" id="avatar_url" name="avatar_url" value="assets/default.png" ng-model="band.image"/>
-        </br>
-        <label for="intro">Intro: <span class="required">*</span></label>
-        <textarea name="intro" placeholder="About" required="required" ng-model="band.intro"></textarea>
-        <h3>Contacto</h3>
-        <label for="website">Web Site: <span class="required">*</span></label>
-        <input type="text" name="website" ng-model="band.website"/>
-        </br>
-        <label for="email">Email Address: <span class="required">*</span></label>
-        <input type="email" name="email" required="required" ng-model="band.email"/>
-        </br>
-        <label for="telephone">Telephone: </label>
-        <input type="tel" name="telephone" ng-model="band.telephone"/>
-        </br>
-        <label for="telephone">Social Media Links: </label>
-        </br>
-        <label><input type="checkbox" ng-model="facebook" value="facebook">Facebook</label>
-        <input type="text" ng-show="facebook" name="facebook" ng-model="social.facebook"/>
-        </br>
-        <label><input type="checkbox" ng-model="twitter" value="twitter">Twitter</label>
-        <input type="text" ng-show="twitter" name="twitter" ng-model="social.twitter"/>
-        </br>
-        <label><input type="checkbox" ng-model="youtube" value="youtube">Youtube</label>
-        <input type="text" ng-show="youtube" name="youtube" ng-model="social.youtube"/>
-        </br>
-        <label><input type="checkbox" ng-model="website" value="website">Website</label>
-        <input type="text" ng-show="website" name="website" ng-model="social.website"/>
-        </br>
-        <input type="submit" ng-click="newBand.add(band, social)" value="Save" />
-        <p id="req-field-desc"><span class="required">*</span> indicates a required field</p>
+        <md-input-container class="md-block image-input">
+            <div class="ng-hide file-preview">
+                <button>x</button>
+                <img src="" id="file_image" alt="Image preview...">
+            </div>
+            <div class="file-upload">
+                <span><i class="fa fa-upload icon-form upload-icon"></i>Upload band photo/logo</span>
+                <input type="file" name="image" id="file_input" />
+            </div>
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Nombre de la Banda/Artista</label>
+            <input required name="name" type="text" ng-model="band.name" />
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Password</label>
+            <input required type="password" name="password" ng-model="band.password" />
+        </md-input-container>
+            <md-input-container class="md-block">
+            <label>Email</label>
+            <input required type="email" name="email" ng-model="band.email" />
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>About the band</label>
+            <textarea ng-model="band.intro" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+        <md-content class="md-block">    
+            <md-chips ng-model="newBand.selectedVegetables" md-autocomplete-snap="">
+              <md-autocomplete 
+                md-selected-item="newBand.selectedItem" 
+                md-search-text="newBand.searchText" 
+                md-items="item in newBand.querySearch(newBand.searchText)" 
+                md-item-text="item.name" 
+                md-selected-item-change="newBand.chipSearch(item)"
+                placeholder="Add genres">
+                <span md-highlight-text="newBand.searchText">{{item.name}}</span>
+              </md-autocomplete>
+              <md-chip-template><span>{{$chip.name}}</span></md-chip-template>
+            </md-chips>
+        </md-content>
+        <div layout-gt-sm="row">
+            <span class="md-block">Add links</span>
+            <md-input-container class="md-block" flex-gt-sm>
+                <md-checkbox ng-model="facebook"><i class="fa fa-twitter-square icon-form icon-form"></i></md-checkbox>
+                <input type="text" ng-show="facebook" aria-label="facebook" name="facebook" ng-model="social.facebook"/>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+                <md-checkbox ng-model="twitter"><i class="fa fa-facebook-square icon-form"></i></md-checkbox>
+                <input type="text" ng-show="twitter" aria-label="twitter" name="twitter" ng-model="social.twitter"/>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+                <md-checkbox ng-model="youtube"><i class="fa fa-youtube icon-form"></i></md-checkbox>
+                <input type="text" ng-show="youtube" aria-label="youtube" name="youtube" ng-model="social.youtube"/>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+                <md-checkbox ng-model="website"><i class="fa fa-vimeo icon-form"></i></md-checkbox>
+                <input type="text" ng-show="website" aria-label="website" name="website" ng-model="social.website"/>
+            </md-input-container>
+        </div>
+        <md-button ng-click="newBand.add(band)">Sign Up</md-button>
     </form>
-</div>
+</section>

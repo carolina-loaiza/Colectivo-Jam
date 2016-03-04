@@ -1,0 +1,26 @@
+//
+// Variables
+//
+
+// Typography
+@import url(https://fonts.googleapis.com/css?family=Comfortaa:400,700,300|Muli:400,300,300italic,400italic);
+
+$title-san-serif:'Comfortaa', cursive;
+$text-serif:'Muli', sans-serif;
+
+// Colors
+
+$mainColor:#D65350; // rojo
+$btnActive:#963835; // rojo oscuro
+$btnInActive:#633A38; // gris
+$darkMain:#4A1D1C; // rojo log in
+$lightColor: #F3F3EA;
+$darkColor:#504E4E; // azul oscuro
+
+// Neat variables
+$max-width: 1200px;
+$grid-columns: 42;
+$desktop-size: 720px;
+
+// Breakpoints
+$desktop: new-breakpoint(min-width $desktop-size);

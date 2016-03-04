@@ -8,10 +8,26 @@
     .module('colectivo')
     .service('reqService', reqService);
 
-    function reqService($http){
+    function reqService($http, $sessionStorage){
+
+      var user_data;
+
+      var session = function(data) {
+        $sessionStorage.session = data;
+        user_data = data;
+        console.log(user_data);
+      }
 
       var create = function(band){
         return $http.post('/bands/add', band);
+      }
+
+      var createAlbum = function(album){
+        return $http.post('/bands/album/new', album);
+      }
+
+      var addAlbum = function(ids) {
+        return $http.post('/bands/add/album', ids);
       }
 
       var login = function(submit){
@@ -39,7 +55,10 @@
       }
 
       var public_api = {
+        session : session,
         create : create,
+        addAlbum: addAlbum,
+        createAlbum : createAlbum,
         login : login,
         signed: signed,
         put: put

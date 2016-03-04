@@ -17,6 +17,7 @@
             reqService.login(vm.data)
             .success(function(data) {
                 console.log(data);
+                //$sessionStorage.set('session', data)
             })
             .error(function(err) {
                 console.log(err);

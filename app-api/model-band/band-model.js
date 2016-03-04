@@ -7,6 +7,7 @@ var SALT_WORK_FACTOR = 10;
 
 var bandSchema = new Schema({
     name: { type: String, required: true, index: { unique: true } },
+    albums: [{type: mongoose.Schema.ObjectId, ref: 'Album'}],
     email: String,
     password:  { type: String, required: true },
     createdOn: { type: Date, default: Date.now },
