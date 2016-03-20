@@ -4,42 +4,53 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Colectivo Jam</title>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.2/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" type="text/css" href="assets/styles/style.css">
   </head>
 	<body>
-		<main-nav></main-nav>
-    <div ui-view></div>
-    <main-footer></main-footer>
+    <div class="mdl-layout mdl-js-layout">
+      <header id="header" ng-class="{'showLogin': nav.isActive}" class="header mdl-layout__header mdl-layout__header--scroll">
+        <main-nav></main-nav>
+      </header>
+      <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+        <span class="mdl-layout-title">Title</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+        </nav>
+      </div>
+      <div ui-view class="mdl-layout__content"></div>
+      <main-footer></main-footer>
+    </div>
   
   <!-- endinject
   <script src="dist/vendor.js"></script>
    endinject -->
 	<!-- bower:js  -->
   <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-  <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+  <script src="bower_components/ng-flow/dist/ng-flow-standalone.min.js"></script>
   <script src="bower_components/angular-aria/angular-aria.min.js"></script>
-  <script src="bower_components/angular-material/angular-material.min.js"></script> 
-  <script src="bower_components/json3/lib/json3.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="bower_components/ngstorage/ngstorage.js"></script>
-  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-  <script src="bower_components/lodash/dist/lodash.compat.js"></script>
   <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="https://code.getmdl.io/1.1.2/material.min.js"></script>
   <!-- endinject -->
+  <script src="audio.js"></script>
   <!-- inject:js -->
   <script src="app.js"></script>
-  <script src="theme.js"></script>
   <script src="common/service/data.service.js"></script>
   <script src="common/navbar/navbar.directive.js"></script>
   <script src="common/navbar/navbar.controller.js"></script>
   <script src="common/footer/footer.directive.js"></script>
-  <script src="logIn/login.controller.js"></script>
+  <script src="common/playMusic/playMusic.directive.js"></script>
+  <script src="common/bandPage/bandPage.controller.js"></script>
+  <script src="common/albumPage/albumPage.controller.js"></script>
   <script src="newBand/newBand.controller.js"></script>
-  <script src="newAlbum/newAlbum.controller.js"></script>
+  <script src="bandUser/bandUser.controller.js"></script>
   <script src="main/main.controller.js"></script>
   <!-- endinject -->
 	</body>

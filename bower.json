@@ -13,7 +13,11 @@
     "ngstorage": "^0.3.10",
     "angular-material": "^1.0.5",
     "bourbon": "7e6e3f22d14641a787f021e985781bff4edf9627",
-    "neat": "1.4.0"
+    "neat": "1.4.0",
+    "bootstrap": "^3.3.6",
+    "angular-material-design-lite": "^0.4.3",
+    "ng-flow": "~2",
+    "angular-audio": "^1.7.1"
   },
   "overrides": {},
   "devDependencies": {

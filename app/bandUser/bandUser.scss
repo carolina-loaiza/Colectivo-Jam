@@ -1,0 +1,62 @@
+.mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after {
+    background: $darkMain; 
+}
+
+.title-album {
+    font-size: 2rem;
+}
+
+.list-tracks {
+    margin: 0 24px;
+    font-size: 1.2rem;
+    
+    li {
+        display: block;
+    }
+}
+
+.title-tracks {
+    font-size: 1.4rem;
+    color: #842C2A;
+    margin-bottom: 10px;
+    margin-left: -16px;
+}
+
+.add-album-panel {
+    width: 500px;
+    margin: 0 auto;
+    float: initial;
+}
+
+.mdl-tabs__tab {
+    font-size: 1.2rem;
+}
+
+.mdl-tabs.is-upgraded .mdl-tabs__tab.is-active {
+    color: $darkMain; 
+}
+
+.song-list {
+    margin-bottom: 50px;
+    
+    input {
+        margin-left: 25px;
+    }
+}
+
+.song-item {
+    margin-bottom: 15px;
+    display: block;
+    border-bottom: 1px solid #DAD5D5;
+    font-size: 1.2rem;
+    color: #59524E;
+
+    .icon-form-delete {
+        color: #A09E9E;
+        background: none;
+    }
+
+    button {
+        float: right;
+    }
+}

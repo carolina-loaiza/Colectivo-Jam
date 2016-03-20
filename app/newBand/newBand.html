@@ -1,65 +1,74 @@
-<section class="submit-form signUp-form">
-    <h2>Sign Up</h2>
-    <form name="bandForm">
-        <md-input-container class="md-block image-input">
-            <div class="ng-hide file-preview">
-                <button>x</button>
-                <img src="" id="file_image" alt="Image preview...">
-            </div>
-            <div class="file-upload">
-                <span><i class="fa fa-upload icon-form upload-icon"></i>Upload band photo/logo</span>
-                <input type="file" name="image" id="file_input" />
-            </div>
-        </md-input-container>
-        <md-input-container class="md-block">
-            <label>Nombre de la Banda/Artista</label>
-            <input required name="name" type="text" ng-model="band.name" />
-        </md-input-container>
-        <md-input-container class="md-block">
-            <label>Password</label>
-            <input required type="password" name="password" ng-model="band.password" />
-        </md-input-container>
-            <md-input-container class="md-block">
-            <label>Email</label>
-            <input required type="email" name="email" ng-model="band.email" />
-        </md-input-container>
-        <md-input-container class="md-block">
-            <label>About the band</label>
-            <textarea ng-model="band.intro" rows="5" md-select-on-focus></textarea>
-        </md-input-container>
-        <md-content class="md-block">    
-            <md-chips ng-model="newBand.selectedVegetables" md-autocomplete-snap="">
-              <md-autocomplete 
-                md-selected-item="newBand.selectedItem" 
-                md-search-text="newBand.searchText" 
-                md-items="item in newBand.querySearch(newBand.searchText)" 
-                md-item-text="item.name" 
-                md-selected-item-change="newBand.chipSearch(item)"
-                placeholder="Add genres">
-                <span md-highlight-text="newBand.searchText">{{item.name}}</span>
-              </md-autocomplete>
-              <md-chip-template><span>{{$chip.name}}</span></md-chip-template>
-            </md-chips>
-        </md-content>
-        <div layout-gt-sm="row">
-            <span class="md-block">Add links</span>
-            <md-input-container class="md-block" flex-gt-sm>
-                <md-checkbox ng-model="facebook"><i class="fa fa-twitter-square icon-form icon-form"></i></md-checkbox>
-                <input type="text" ng-show="facebook" aria-label="facebook" name="facebook" ng-model="social.facebook"/>
-            </md-input-container>
-            <md-input-container class="md-block" flex-gt-sm>
-                <md-checkbox ng-model="twitter"><i class="fa fa-facebook-square icon-form"></i></md-checkbox>
-                <input type="text" ng-show="twitter" aria-label="twitter" name="twitter" ng-model="social.twitter"/>
-            </md-input-container>
-            <md-input-container class="md-block" flex-gt-sm>
-                <md-checkbox ng-model="youtube"><i class="fa fa-youtube icon-form"></i></md-checkbox>
-                <input type="text" ng-show="youtube" aria-label="youtube" name="youtube" ng-model="social.youtube"/>
-            </md-input-container>
-            <md-input-container class="md-block" flex-gt-sm>
-                <md-checkbox ng-model="website"><i class="fa fa-vimeo icon-form"></i></md-checkbox>
-                <input type="text" ng-show="website" aria-label="website" name="website" ng-model="social.website"/>
-            </md-input-container>
-        </div>
-        <md-button ng-click="newBand.add(band)">Sign Up</md-button>
-    </form>
+<section class="signUp-section">
+  <h2 class="form-title">Sign Up</h2>
+  <form name="bandForm" novalidate>
+    <div class="file-upload" flow-init flow-file-added="newBand.file($file)">
+      <img flow-img="$flow.files[0]"/>
+      <div ng-hide="$flow.files[0]">
+        <i class="material-icons icon-form-upload">file_upload</i>
+        <span>Upload band photo/logo</span>
+        <input type="file" flow-btn name="image" id="file_input"/>
+      </div>
+    </div>
+    <label>
+      <input required placeholder="Band Name/Artist" class="form-input" name="name" type="text"
+      ng-model="band.name"
+      ng-class="{'populated': band.name}" />
+      <span class="form-input-label">Band Name/Artist</span>
+    </label>
+    <label>
+      <input required placeholder="Add Password" class="form-input" name="password" type="password"
+      ng-model="band.password"
+      ng-class="{'populated': band.password}" />
+      <span class="form-input-label">Add Password</span>
+    </label>
+    <label>
+      <input required placeholder="Email" class="form-input" name="email" type="text"
+      ng-model="band.email"
+      ng-class="{'populated': band.email}" />
+      <span class="form-input-label">Email</span>
+    </label>
+    <label>
+      <textarea required placeholder="About" class="form-input" name="intro" type="text"
+      ng-model="band.intro"
+      ng-class="{'populated': band.intro}"></textarea>
+      <span class="form-input-label">About</span>
+    </label>
+    <div class="form-genres">
+      <select required ng-model="choosen" class="form-basic" ng-click="choosen = { name:'not in list'}" ng-change="newBand.getGenres(choosen)" ng-options="gender.name for gender in newBand.genres">
+        <option value="">Choose genres</option>
+      </select>
+      <span>or</span>
+      <input ng-model="newBand.customChoose" value="" type="text" class="form-basic" placeholder="Add a genre"/>
+      <button ng-click="newBand.getGenres(newBand.customChoose)" class=""><i class="material-icons icon-form-add">add_box</i></button>
+      <ul>
+        <li ng-repeat="gender in newBand.listGenres">{{gender.name}}
+          <button ng-click="newBand.deleteGender(gender)">
+            <i class="material-icons icon-form-delete">clear</i>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="form-links">
+      <h4>Add Links <span>| Optional</span></h4>
+      <ul>
+        <li>
+          <i class="fa fa-facebook-official"></i>
+          <input ng-model="links.facebook" value="" type="text" class="form-basic" placeholder="Facebook link.."/>
+        </li>
+        <li>
+          <i class="fa fa-twitter"></i>
+          <input ng-model="links.twitter" value="" type="text" class="form-basic" placeholder="Twitter link.."/>
+        </li>
+        <li>
+          <i class="fa fa-youtube-play"></i>
+          <input ng-model="links.youtube" value="" type="text" class="form-basic" placeholder="Youtube link.."/>
+        </li>
+        <li>
+          <i class="fa fa-soundcloud"></i>
+          <input ng-model="links.soundcloud" value="" type="text" class="form-basic" placeholder="Soundcloud link.."/>
+        </li>
+      </ul>
+    </div>
+    <button class="mdl-button mdl-js-button button" ng-click="newBand.add(band, links)" ng-disabled="!bandForm.$valid">Sign Up</button>
+  </form>
 </section>

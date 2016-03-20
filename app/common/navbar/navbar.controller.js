@@ -6,42 +6,39 @@
     .module('colectivo')
     .controller('NavbarController', NavbarController);
 
-  function NavbarController(reqService, $location, $sessionStorage) {
+  function NavbarController($scope, $state, $rootScope, reqService, $location, $sessionStorage) {
     var vm = this;
-    var header = document.getElementById('header');
-    var loginForm = document.getElementById('login-form');
-    vm.data = {};
+    vm.bandData = {};
+    
+    vm.bandName;
 
-    if ($sessionStorage.session) {
-        vm.logIn = true;
-        vm.islogged = true;
-    }
-
-    //Show Hide Login Form
-    vm.showHide = function () {
-        loginForm.classList.toggle('hidden');
-        header.classList.toggle('nav-login-visible');
-    }
+    $scope.$watch(function(){
+      return $sessionStorage.session
+    }, function (users) {
+        if (users) {
+            vm.bandName = users.name;
+        };
+    })
 
     // Login Service Request
     vm.login = function(data) {
-        vm.data = angular.copy(data);
-        reqService.login(vm.data)
+        vm.bandData = angular.copy(data);
+        reqService.login(vm.bandData)
         .success(function(data) {
-            vm.showHide();
-            vm.logIn = true;
-            vm.islogged = true;
-            reqService.session(data);
+            vm.isActive = false;
+            reqService.sessionStorage(data);
         })
         .error(function(err) {
             console.log(err);
+            vm.invalid = true;
         });
     };
 
     // Log Out User
     vm.logOut = function() {
-        location.reload();
+        vm.bandName = undefined;
         $sessionStorage.$reset();
+        $state.go('main');
     }
   }
 })();

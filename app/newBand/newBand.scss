@@ -1,18 +1,47 @@
-.signUp-form {
-  background: $darkColor;
+.signUp-section {
+  width: 680px;
+  margin: 25px auto;
+  overflow: hidden;
+  -webkit-transition: all 5s ease-in-out;
+  transition: all 5s ease-in-out;
+
+  form {
+    width: 500px;
+  }
+
+  .form-title {
+    color: $mainColor;
+  }
+
+  .form-input-label {
+    color: transparentize($darkColor, $amount-trans);
+  }
+
+  .form-input {
+    color: $darkColor;
+    border-bottom: 1px solid transparentize($darkColor, $amount-trans);
+    @include placeholder {
+      @include placeholder_style($darkColor);
+    }
+  }
+
+  .form-basic {
+    color: $darkColor;
+    border-bottom: 1px solid transparentize($darkColor, $amount-trans);
+  }
 }
 
-.form-icon {
-  fill: $lightColor;
+.image-input {
+  margin-bottom: 15%;
 }
 
 .file-upload {
   width: 350px;
   margin: 15px auto;
   position: relative;
-  color: #333;
-  border: 3px dashed #A9A9A9;
+  border: 3px dashed $inActive;
   cursor: pointer;
+  margin-bottom: 60px;
 
   &:hover > span {
     text-decoration: underline;
@@ -20,38 +49,82 @@
 
   input {
     position: absolute;
+    width: 100%;
     height: 109px;
     top: 36%;
     right: 0;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    cursor: pointer;
+    font-size: 3rem;
     opacity: 0;
-    filter: alpha(opacity=0);
   }
 
   span {
-    font-size: 20px;
-    color: #F3F3D1;
+    font-size: 1.5rem;
+    height: 50px;
     text-align: center;
     display: block;
-    margin: 40% 0;
+    padding-top: 27px;
+    margin-bottom: 25%;
   }
 }
 
-.icon-form {
-  font-size: 2rem;
-  color: $lightColor;
-}
-
-.upload-icon {
+.icon-form-upload {
   display: block;
-  margin-bottom: 20px
+  color: $inActive;
+  font-size: 60px;
+  text-align: center;
+  margin-top: 25%;
 }
 
-.genres-form {
-  input::placeholder {
-    color: #838181;
+.icon-form-add {
+  color: $inActive;
+  vertical-align: middle;
+}
+
+.icon-form-delete {
+  font-size: 1.4rem;
+  vertical-align: middle;
+  color: $lightColor;
+  background: $inActive;
+  padding: 1px;
+  cursor: pointer
+}
+
+.form-genres {
+  ul {
+    margin-bottom: 40px;
   }
-} 
+
+  input {
+    width: 25%;
+  }
+
+  span {
+    font-size: 1.2rem;
+    color: $darkColor;
+    padding: 0 3%;
+  }
+
+  li {
+    font-size: 1rem;
+    margin: 0 1%;
+    border: 1px solid $inActive;
+    border-radius: 2px;
+    padding-left: 5px;
+    color: $darkColor;
+    line-height: normal;
+  }
+}
+
+.form-links {
+  h4 {
+    font-size: 1.2rem;
+    color: $darkColor;
+    margin-bottom: 20px;
+  }
+
+  .fa {
+    font-size: 1.5rem;
+    margin-right: 13px;
+    color: $inActive;
+  }
+}

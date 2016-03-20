@@ -1,0 +1,55 @@
+.header {
+  background: $darkMain;
+  max-height: 68px;
+  overflow: hidden;
+  color: #fff;
+  transition: 0.5s ease-out all;
+}
+
+.nav-header {
+  background: #D65350;
+}
+
+.login-section {
+  width: 400px;
+  margin: 25px auto;
+  overflow: hidden;
+  -webkit-transition: all 5s ease-in-out;
+  transition: all 5s ease-in-out;
+
+  .form-input-label {
+    color: transparentize($lightColor, $amount-trans);
+  }
+
+  .form-input {
+    @include placeholder {
+      @include placeholder_style($lightColor);
+    }
+  }
+}
+
+.showLogin { 
+  max-height: 400px;
+}
+
+.navigation-nav {
+  li {
+    margin: 0 20px;
+  }
+
+  a {
+    color: #fff;
+    font-size: 1rem;
+    padding: 2px 0;
+  }
+}
+
+.linkActive a{
+  border-bottom: 3px solid;
+}
+
+.buttonUser {
+  cursor: pointer;
+  border: 1px solid;
+  padding: 2px 4px;
+}

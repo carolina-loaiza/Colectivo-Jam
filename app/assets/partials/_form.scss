@@ -1,0 +1,89 @@
+form {
+  float: right;
+  margin: 0;
+}
+
+form label {
+  text-align: left;
+  position: relative;
+  display: block;
+}
+
+.form-input-label {
+  font-size: 1.1rem;
+  position: absolute;
+  top: 0px;
+  opacity: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-title {
+  float: left;
+}
+
+.form-error {
+  float: right;
+
+  strong {
+    font-size: 2rem;
+  }
+}
+
+.form-input {
+  background: none;
+  display: inline-block;
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid transparentize($lightColor, $amount-trans);
+  padding: 5px 0;
+  margin-bottom: 40px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-basic {
+  font-size: 1.2rem;
+  background: none;
+  display: inline-block;
+  border: none;
+  padding: 5px 0;
+  margin-bottom: 26px;
+}
+
+.form-input:focus,
+.populated {
+  padding-top: 28px;
+  padding-bottom: 12px;
+}
+
+.form-input:focus::-webkit-input-placeholder,
+.populated::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.form-input:focus::-moz-placeholder,
+.populated::-moz-placeholder {
+  color: transparent;
+}
+
+.form-input:focus:-ms-input-placeholder,
+.populated:-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-input:focus::placeholder,
+.populated::placeholder {
+  color: transparent;
+}
+
+.form-input:focus + span,
+.populated + span {
+  opacity: 1;
+}
+
+.mdl-button[disabled][disabled],
+.mdl-button.mdl-button--disabled.mdl-button--disabled {
+  color: #949494;
+  border: 1px solid #949494;
+}

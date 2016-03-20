@@ -1,14 +1,5 @@
 //
 
-// Bibliotecas
-@import "../bower_components/bourbon/dist/bourbon";
-@import "../bower_components/neat/app/assets/stylesheets/neat";
-
-
-// Reset
-
-@import "partials/normalize";
-
 // Parciales
 
 @import "partials/variables";
@@ -20,6 +11,10 @@
 // Modules
 @import "../common/navbar/navbar";
 @import "../common/footer/footer";
+@import "../common/bandPage/bandPage";
+@import "../common/playMusic/playMusic";
 @import "../main/main";
 @import "../newBand/newBand";
-@import "../newAlbum/newAlbum";
+@import "../bandUser/bandUser";
+
+@import "partials/form";

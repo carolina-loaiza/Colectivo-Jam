@@ -1,51 +1,15 @@
 //
 // General layout rules
 //
-
-.container {
-  @include outer-container;
+//
+.mdl-cell .mdl-grid {
+    padding: 0;
 }
 
-.col {
-
-  width: 100%;
-  
-  @media screen and (min-width: 720px) {
-    @include span-columns(21);
-  }
-
-  div {
-    overflow: hidden;
-    margin-bottom: 1.3%;
-  }
+.mdl-grid {
+    max-width: $max-width;
 }
 
-.box-main {
-  width: 100%;
-}
-
-.box-3 {
-  @include span-columns(7 of 21);
-  min-height: 250px;
-}
-
-.box-2 {
-  @include span-columns(10.5 of 21);
-  min-height: 280px;
-}
-
-.box-4 {
-  @include span-columns(15 of 21);
-}
-
-.box-6 {
-  @include span-columns(6 of 21);
-}
-
-.box-6, .box-4 {
-  min-height: 320px;
-}
-
-.reset-margin {
-  margin: 0; 
+.mdl-layout__content {
+    position: relative;
 }

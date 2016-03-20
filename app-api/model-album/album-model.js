@@ -5,7 +5,11 @@ var Schema = mongoose.Schema;
 
 var albumSchema = new Schema({
     name: { type: String, required: true, index: { unique: true } },
-    tracks: Array
+    owner: [{type: mongoose.Schema.ObjectId, ref: 'Band'}],
+    tracks: Array,
+    cover: String,
+    song: {name: String, link: String},
+    genres : Array
 });
 
 module.exports = mongoose.model('Album', albumSchema);

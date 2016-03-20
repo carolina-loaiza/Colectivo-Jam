@@ -12,15 +12,14 @@ $text-serif:'Muli', sans-serif;
 
 $mainColor:#D65350; // rojo
 $btnActive:#963835; // rojo oscuro
-$btnInActive:#633A38; // gris
-$darkMain:#4A1D1C; // rojo log in
+$inActive:#A09E9E; // gris
+$darkMain:#842C2A; // rojo log in
 $lightColor: #F3F3EA;
 $darkColor:#504E4E; // azul oscuro
 
-// Neat variables
+//Transparentize
+$amount-trans: .5;
+$amount-light: 12%;
+// Layout variables
 $max-width: 1200px;
-$grid-columns: 42;
-$desktop-size: 720px;
 
-// Breakpoints
-$desktop: new-breakpoint(min-width $desktop-size);

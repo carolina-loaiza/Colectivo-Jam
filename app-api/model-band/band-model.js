@@ -2,6 +2,7 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+/*crypto*/
 var bcrypt = require('bcryptjs');
 var SALT_WORK_FACTOR = 10;
 
@@ -13,8 +14,8 @@ var bandSchema = new Schema({
     createdOn: { type: Date, default: Date.now },
     image: String,
     intro: String,
-    website: String,
-    telephone: String
+    genres : Array,
+    links: Object
 });
 
 bandSchema.pre('save', function(next) {
@@ -45,4 +46,22 @@ bandSchema.methods.comparePassword = function(candidatePassword, cb) {
     });
 };
 
+/*
+Token / jwt token
+bandSchema.methods.generateJwt = function() {
+    var expiry = new Date();
+    expiry.setDate(expiry.getDate() + 7);
+
+    return jwt.sign({
+        .
+        .
+        .
+        exp: parseInt(expiry.getTime() / 1000)
+    }, SECRET);
+}
+
+Password
+Password Local
+
+ */
 module.exports = mongoose.model('Band', bandSchema);

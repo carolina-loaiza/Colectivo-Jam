@@ -1,0 +1,59 @@
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+  <div class="mdl-tabs__tab-bar">
+    <a href="#add-album" class="mdl-tabs__tab is-active">Add Album</a>
+    <!-- <a href="#edit-band" class="mdl-tabs__tab">Edit Band Info</a> -->
+  </div>
+  <!-- Tabs Container -->
+  <div class="mdl-tabs__panel signUp-section add-album-panel is-active" id="add-album">
+    <form name="bandForm" novalidate>
+      <div class="file-upload" flow-init flow-file-added="bandUser.getFiles($file)">
+        <img flow-img="$flow.files[0]"/>
+        <div ng-hide="$flow.files[0]">
+          <i class="material-icons icon-form-upload">file_upload</i>
+          <span>Upload album photo</span>
+          <input type="file" flow-btn name="image" id="file_input"/>
+        </div>
+      </div>
+      <label>
+        <input required placeholder="Album Name" class="form-input" name="name" type="text"
+        ng-model="album.name"
+        ng-class="{'populated': album.name}" />
+        <span class="form-input-label">Album Name</span>
+      </label>
+      <div class="song-list">
+        <label>Tracks :
+          <input ng-model="bandUser.newSong" value="" type="text" class="form-basic" placeholder="Add a song"/>
+          <button ng-click="bandUser.getListSongs(bandUser.newSong)" class=""><i class="material-icons icon-form-add">add_box</i></button>
+        </label>
+        <ul>
+          <li class="song-item" ng-repeat="song in bandUser.listSongs">
+            <span>{{$index + 1}} - </span>
+            {{song.name}}
+            <button ng-click="bandUser.deleteSong(song)">
+              <i class="material-icons icon-form-delete">clear</i>
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="form-genres">
+        <select required ng-model="choosen" class="form-basic" ng-click="choosen = { name:'not in list'}" ng-change="bandUser.getGenres(choosen)" ng-options="gender.name for gender in bandUser.genres">
+          <option value="">Choose genres</option>
+        </select>
+        <span>or</span>
+        <input ng-model="bandUser.customChoose" value="" type="text" class="form-basic" placeholder="Add a genre"/>
+        <button ng-click="bandUser.getGenres(bandUser.customChoose)" class=""><i class="material-icons icon-form-add">add_box</i></button>
+        <ul>
+          <li ng-repeat="gender in bandUser.listGenres">{{gender.name}}
+            <button ng-click="bandUser.deleteGender(gender)">
+              <i class="material-icons icon-form-delete">clear</i>
+            </button>
+          </li>
+        </ul>
+      </div>
+      <button class="mdl-button mdl-js-button button" ng-click="bandUser.add(album)" ng-disabled="!bandForm.$valid">Add Album</button>
+    </form>
+  </div>
+  <div class="mdl-tabs__panel" id="edit-band">
+     <p>edit band info</p>
+  </div>
+</div>

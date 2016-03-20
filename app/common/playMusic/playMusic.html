@@ -1,0 +1,13 @@
+<!-- <h2 class="title-red">{{ctrlPlay.data.name}}</h2> -->
+<div class="discover-box">
+  <div class="discover-play">
+    <audio id="audio" ng-model="ctrlPlay.btn" src="{{ctrlPlay.data.song.link}}"></audio>
+    <img src="{{ctrlPlay.data.cover}}" alt="">
+    <button id="button-music" class="mdl-button" ng-click="ctrlPlay.play(ctrlPlay.btn)">
+        <i id="icon-music" class="material-icons icon">{{ctrlPlay.btn}}</i>
+    </button>
+    <progress id="seekbar" value="0" max="1"></progress>
+  </div>
+  <h3 class="album-name">{{ctrlPlay.data.song.name}}</h3>
+  <span class="currentTime" id="currentTime" >0 : 00</span><span class="duration" id="duration"> / 0 : 00</span>
+</div>

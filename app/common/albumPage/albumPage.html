@@ -1,0 +1,15 @@
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col">
+        <play-container data="album.data"></play-container>
+    </div>
+    <div class="mdl-cell mdl-cell--8-col">
+        <h2 class="title-red title-album">{{album.data.name}}</h2>
+        <ul class="list-tracks">
+            <li class="title-tracks">Tracks</li>
+            <li ng-repeat="song in album.data.tracks">
+                <span>{{$index + 1}} - </span>
+                {{song.name}}
+            </li>
+        </ul>
+    </div>
+</div>

@@ -18,8 +18,13 @@
 	background-repeat: no-repeat;
 }
 
-// sprite reset omega margin columns
-@mixin omega-reset($nth) {
-	&:nth-child(#{$nth}) { margin-right: flex-gutter(); }
-	&:nth-child(#{$nth}+1) { clear: none }
+@mixin placeholder {
+    &::-moz-placeholder { @content }
+    &::-webkit-input-placeholder { @content }
+    &::placeholder { @content }
+    &:-ms-input-placeholder { @content }
+}
+ 
+@mixin placeholder_style($color) {
+    color: $color;
 }

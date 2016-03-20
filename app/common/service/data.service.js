@@ -8,18 +8,56 @@
     .module('colectivo')
     .service('reqService', reqService);
 
-    function reqService($http, $sessionStorage){
+    function reqService($state, $http, $sessionStorage){
 
       var user_data;
 
-      var session = function(data) {
+      var genresList = [
+        {name:'rock'},
+        {name:'punk'},
+        {name:'pop'},
+        {name:'garage'},
+        {name:'metal'},
+        {name:'classical'},
+        {name:'ambient'},
+        {name:'electronic'},
+        {name:'romantic'},
+        {name:'rock & roll'}
+      ]
+
+      var sessionStorage = function(data) {
         $sessionStorage.session = data;
-        user_data = data;
-        console.log(user_data);
+        var name = data.name.replace(/\s+/g, '-').toLowerCase();
+        $state.go('bandUser', {band_name : name});
+      }
+
+      var userData = function() {
+        if ($sessionStorage.session) {
+          return user_data = $sessionStorage.session;
+        }else {
+          return user_data = {};
+        }
+      }
+
+      var listArray = function(input, array) {
+        var newSong = input;
+        
+        if (typeof newSong == 'string') {
+          newSong = {name: newSong}
+        }
+        array.push(newSong);
+      }
+
+      var deleteFromList = function(item, array) {
+        array.splice(array.indexOf(item), 1);
       }
 
       var create = function(band){
         return $http.post('/bands/add', band);
+      }
+
+      var login = function(submit){
+        return $http.post('/bands/login', submit);
       }
 
       var createAlbum = function(album){
@@ -30,38 +68,31 @@
         return $http.post('/bands/add/album', ids);
       }
 
-      var login = function(submit){
-        return $http.post('/bands/login', submit);
+      var getBand = function(band){
+        return $http.get('/bands/'+band);
       }
 
-      var signed = function(file) {
-        return $http.get('/bands/sign_s3?file_name='+file.name+'&file_type='+file.type);
+      var getAlbum = function(album){
+        return $http.get('/bands/album/'+album);
       }
 
-      var put = function(file, data){
-        console.log(data.signed_request);
-        var xhr = new XMLHttpRequest();
-        xhr.open("PUT", data.signed_request);
-        xhr.setRequestHeader('x-amz-acl', 'public-read');
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-              console.log('di ok');
-            }
-        };
-        xhr.onerror = function() {
-            alert("Could not upload file."); 
-        };
-        xhr.send(file);
+      var getAllAlbum = function(){
+        return $http.get('/bands/all/albums');
       }
-
+      
       var public_api = {
-        session : session,
+        getBand: getBand,
+        getAlbum: getAlbum,
+        getAllAlbum: getAllAlbum,
+        genresList : genresList,
+        listArray : listArray,
+        deleteFromList : deleteFromList,
         create : create,
+        userData: userData,
+        sessionStorage : sessionStorage,
         addAlbum: addAlbum,
         createAlbum : createAlbum,
-        login : login,
-        signed: signed,
-        put: put
+        login : login
       };
 
       return public_api;

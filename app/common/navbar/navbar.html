@@ -1,34 +1,35 @@
-<header class="header" id="header">
-  <nav class="header-nav">
-    <h1 class="header-logo">elColectivo</h1>
+<div class="nav-header mdl-layout__header-row">
+  <!-- Title -->
+  <h1 class="mdl-layout-title"><a ui-sref="main" class="logo">elColectivo</a></h1>
+  <!-- Add spacer, to align navigation to the right -->
+  <div class="mdl-layout-spacer"></div>
+  <!-- Navigation. We hide it in small screens. -->
+  <nav class="mdl-navigation mdl-layout--large-screen-only navigation-nav">
     <ul>
-      <li>Search</li>
-      <li ng-hide="nav.logIn"><a ui-sref="signup">Sign up</a></li>
-      <li ng-hide="nav.logIn"><button ng-click="nav.showHide()">Log In</button></li>
-      <li ng-show="nav.islogged" class="nav-account">Your Account
-        <ul>
-          <li><a ui-sref="album">Add Album</a></li>
-          <li><a ui-sref="edit">Edit</a></li>
-          <li><button ng-click="nav.logOut()">Log Out</button></li>
-        </ul>
-      </li>
+      <li ng-class="{ linkActive: isCurrentPath('/') }"><a class="navigation-link" ui-sref="main">Home</a></li>
+      <li ng-class="{ linkActive: isCurrentPath('/band/signup') }" ng-hide="nav.bandName" class="ng-hide" ><a class="navigation-link" ui-sref="signup">Sign In</a></li>
+      <li ng-hide="nav.bandName" class="ng-hide buttonUser"><a class="navigation-link" id="login-section" ng-init="nav.isActive = false" ng-click="nav.isActive = !nav.isActive">Log In</a></li>
+      <li ng-show="nav.bandName" class="navigation-link">{{nav.bandName}} | <a class="navigation-link" ui-sref="bandUser({band_name: nav.bandName})">Edit</a></li>
+      <li ng-show="nav.bandName" class="buttonUser"><a class="navigation-link" ng-click="nav.logOut()">Log Out</a></li>
     </ul>
   </nav>
-
-  <section id="login-form" class="submit-form login-form hidden">
-    <h2>Log In</h2>
-    <form name="loginForm" novalidate>
-      <md-input-container class="md-block">
-        <label>Nombre de la Banda/Artista</label>
-        <input required name="bandName" ng-model="session.name" />
-      </md-input-container>
-      <md-input-container class="md-block">
-        <label>Contraseña</label>
-        <input required name="password" type="password" ng-model="session.password" />
-      </md-input-container>
-      <md-button ng-click="nav.login(session)" ng-disabled="!loginForm.$valid">Log In</md-button>
-      <a class="header-link" ui-sref="signup">Sign up</a>
-    </form>
-  </section>
-
-</header>
+</div>
+<section class="login-section">
+  <h3 class="form-title">Log In</h3>
+  <p  class="form-error" ng-show="nav.invalid"><strong>* </strong> Incorrect Band Name or Password</p>
+  <form name="loginForm" novalidate>
+    <label>
+      <input required placeholder="Band Name" class="form-input" name="bandName"
+      ng-model="session.name"
+      ng-class="{'populated': session.name}" />
+      <span class="form-input-label">Band Name</span>
+    </label>
+    <label>
+      <input required placeholder="Password" class="form-input" name="password" type="password"
+      ng-model="session.password"
+      ng-class="{'populated': session.password}" />
+      <span class="form-input-label">Password</span>
+    </label>
+    <button class="mdl-button mdl-js-button button" ng-click="nav.login(session)" ng-disabled="!loginForm.$valid">Log In</button>
+  </form>
+</section>

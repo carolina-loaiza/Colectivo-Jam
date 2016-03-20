@@ -6,12 +6,18 @@
     .module('colectivo')
     .directive('mainNav', mainNav);
 
-    function mainNav() {
+    function mainNav($location) {
         return {
+            restrict: 'E',
             templateUrl: 'common/navbar/navbar.html',
             bindToController: true,
             controllerAs: 'nav',
-            controller: 'NavbarController'
+            controller: 'NavbarController',
+            link: function(scope) {
+                scope.isCurrentPath = function(path) {
+                    return $location.path() == path;
+                };
+            }
         };
     }
 
