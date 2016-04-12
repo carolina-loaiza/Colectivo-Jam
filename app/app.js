@@ -3,7 +3,7 @@
 (function() {
 
   angular
-  .module('colectivo', ['ngResource', 'ui.router', 'ngStorage', 'flow'])
+  .module('colectivo', ['ngResource', 'ui.router', 'ngStorage', 'flow', 'ngFileUpload'])
   .config(function($stateProvider, $urlRouterProvider, $sceProvider) {
     $sceProvider.enabled(false);
 

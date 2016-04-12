@@ -9,6 +9,11 @@ form label {
   display: block;
 }
 
+textarea.form-input {
+  height: 80px;
+  padding: 0;
+}
+
 .form-input-label {
   font-size: 1.1rem;
   position: absolute;
@@ -53,8 +58,8 @@ form label {
 
 .form-input:focus,
 .populated {
-  padding-top: 28px;
-  padding-bottom: 12px;
+  margin-top: 28px;
+  padding-top: 0;
 }
 
 .form-input:focus::-webkit-input-placeholder,

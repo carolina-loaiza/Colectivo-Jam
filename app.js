@@ -1,5 +1,7 @@
 'use strict';
 
+var dotenv = require('dotenv');
+dotenv.load();
 var express = require('express');
 var mongoose = require('mongoose');
 var morgan = require('morgan');

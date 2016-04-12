@@ -6,8 +6,10 @@
   .module('colectivo')
   .controller('BandUserController', BandUserController);
 
-    function BandUserController(reqService, $sessionStorage, $stateParams) {
+    function BandUserController(Upload, reqService, $sessionStorage, $stateParams) {
       var vm = this;
+      var coverAlbum;
+      var files = {};
 
       vm.datos = reqService.userData();
       console.log(vm.datos);
@@ -15,14 +17,22 @@
       vm.album = {};
       vm.listGenres = [];
       vm.listSongs = [];
-      vm.files = {};
       vm.genres = reqService.genresList;
 
-      vm.getFiles = function(files) {
-        if (files.file.type === "audio/mp3") {
-          vm.files.name = files.name;
-          vm.files.link = "https://raw.githubusercontent.com/carolina-loaiza/Guayaba-Jam/blob/master/bandas/ave_negra/ave_negra/Ave%20Negra.mp3"
-        }
+      vm.getFiles = function(file) {
+        //
+        files.name = "File Audio";
+        files.link = "https://raw.githubusercontent.com/carolina-loaiza/Guayaba-Jam/blob/master/bandas/ave_negra/ave_negra/Ave%20Negra.mp3"
+        //
+        var image = file.file
+        Upload.upload({
+          url: '/bands/images',
+          file: image
+        })
+        .success(function(data) {
+          coverAlbum = data;
+          coverAlbum = coverAlbum.substring(49)
+        });
       }
 
       vm.getListSongs = function(input) {
@@ -48,8 +58,8 @@
         vm.album.genres = vm.listGenres;
         vm.album.tracks = vm.listSongs;
         vm.album.owner = vm.datos._id;
-        vm.album.song = vm.files;
-        vm.album.cover = 'https://raw.githubusercontent.com/carolina-loaiza/Guayaba-Jam/master/bandas/las_robertas/cry_out_loud/cover.jpg';
+        vm.album.song = files;
+        vm.album.cover = coverAlbum;
         console.log(vm.album);
 
         reqService.createAlbum(vm.album)

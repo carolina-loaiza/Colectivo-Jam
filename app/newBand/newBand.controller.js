@@ -6,8 +6,10 @@
   .module('colectivo')
   .controller('NewBandController', NewBandController);
 
-    function NewBandController ($scope, $sessionStorage, reqService, $location) {
+    function NewBandController (Upload, $sessionStorage, reqService, $location) {
         var vm = this;
+        var reader  = new FileReader();
+        var bandImage;
         vm.band = {};
         vm.listGenres = [];
         vm.genres = reqService.genresList;
@@ -22,31 +24,26 @@
         }
 
         vm.file = function(file) {
-            console.log(file);
+            var image = file.file
+            Upload.upload({
+                url: '/bands/images',
+                file: image
+            })
+            .success(function(data) {
+                bandImage = data;
+                bandImage = bandImage.substring(49)
+                console.log(bandImage)
+            });
         }
 
         vm.add = function(band, links) {
             vm.band = angular.copy(band);
             vm.band.links = angular.copy(links);
             vm.band.genres = vm.listGenres;
-            vm.band.image = "https://raw.githubusercontent.com/carolina-loaiza/Guayaba-Jam/master/bandas/ni%C3%B1o_koi/photo.jpg";
-            console.log(vm.band);
-            /*
-            reqService.signed(file)
-            .success(function(data) {
-                vm.band.url = data.url;
-                reqService.create(vm.band)
-                console.log(vm.band);
-                reqService.put(file, data);
-            })
-            .error(function(err) {
-                console.log(err);
-            });
-            
-            */
+            vm.band.image = bandImage;
+
             reqService.create(vm.band)
             .success(function(data) {
-                console.log(data);
                 reqService.sessionStorage(data);
             })
             .error(function(err) {

@@ -41,7 +41,6 @@
 
       var listArray = function(input, array) {
         var newSong = input;
-        
         if (typeof newSong == 'string') {
           newSong = {name: newSong}
         }
@@ -54,6 +53,10 @@
 
       var create = function(band){
         return $http.post('/bands/add', band);
+      }
+
+      var uploadImage = function(file) {
+        return $http.post('/bands/images', file);
       }
 
       var login = function(submit){
@@ -92,7 +95,8 @@
         sessionStorage : sessionStorage,
         addAlbum: addAlbum,
         createAlbum : createAlbum,
-        login : login
+        login : login,
+        uploadImage: uploadImage
       };
 
       return public_api;

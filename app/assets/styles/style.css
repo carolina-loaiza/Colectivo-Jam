@@ -116,7 +116,8 @@ ul {
   max-height: 68px;
   overflow: hidden;
   color: #fff;
-  transition: 0.5s ease-out all; }
+  -webkit-transition: 0.5s ease-out all;
+          transition: 0.5s ease-out all; }
 
 .nav-header {
   background: #D65350; }
@@ -132,6 +133,8 @@ ul {
   .login-section .form-input::-moz-placeholder {
     color: #F3F3EA; }
   .login-section .form-input::-webkit-input-placeholder {
+    color: #F3F3EA; }
+  .login-section .form-input:-ms-input-placeholder {
     color: #F3F3EA; }
   .login-section .form-input::placeholder {
     color: #F3F3EA; }
@@ -221,6 +224,23 @@ progress[value]::-webkit-progress-value {
     font-size: 50px;
     color: #fff; }
 
+.intro {
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  color: #fff; }
+  .intro h2 {
+    font-size: 5rem;
+    width: 78%;
+    line-height: 72px;
+    background: #000; }
+  .intro p {
+    background: #000;
+    padding: 12px 6px;
+    font-size: 2rem;
+    width: 100%;
+    margin-left: 38%; }
+
 .album-img {
   margin-bottom: 10px; }
   .album-img img {
@@ -246,7 +266,6 @@ progress[value]::-webkit-progress-value {
     color: #000;
     opacity: 0;
     -webkit-transition: opacity .5s ease-in-out;
-    -o-transition: opacity .5s ease-in-out;
     transition: opacity .5s ease-in-out; }
   .main-bands:hover > img {
     opacity: .3; }
@@ -274,7 +293,6 @@ progress[value]::-webkit-progress-value {
   border-bottom: 2px solid;
   margin: 8px 7px;
   -webkit-transition: all .3s ease-in-out;
-  -o-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out; }
   .filter-item span {
     color: inherit; }
@@ -286,10 +304,12 @@ progress[value]::-webkit-progress-value {
   color: #D65350;
   display: block;
   padding: 5px 0; }
-  .new-bands span:before {
+  .new-bands span:before, .new-bands span:after {
     content: ' ';
     display: inline-block;
-    border: 1px dashed; }
+    border: 4px dashed;
+    vertical-align: middle;
+    margin: 0px 8px; }
 
 .new-bands button {
   background: #e28482;
@@ -316,6 +336,8 @@ progress[value]::-webkit-progress-value {
     .signUp-section .form-input::-moz-placeholder {
       color: #504E4E; }
     .signUp-section .form-input::-webkit-input-placeholder {
+      color: #504E4E; }
+    .signUp-section .form-input:-ms-input-placeholder {
       color: #504E4E; }
     .signUp-section .form-input::placeholder {
       color: #504E4E; }
@@ -457,6 +479,10 @@ form label {
   position: relative;
   display: block; }
 
+textarea.form-input {
+  height: 80px;
+  padding: 0; }
+
 .form-input-label {
   font-size: 1.1rem;
   position: absolute;
@@ -494,8 +520,8 @@ form label {
 
 .form-input:focus,
 .populated {
-  padding-top: 28px;
-  padding-bottom: 12px; }
+  margin-top: 28px;
+  padding-top: 0; }
 
 .form-input:focus::-webkit-input-placeholder,
 .populated::-webkit-input-placeholder {

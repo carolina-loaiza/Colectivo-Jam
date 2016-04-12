@@ -1,5 +1,9 @@
 <section class="background">
   <img src="assets/img/ok2.jpg" alt="">
+  <div class="intro">
+    <h2 class="logo">elColectivo</h2>
+    <p>a place to discover Costa Rica's music.</p>
+  </div>
 </section>
 <div class="mdl-grid main-bands-container">
   <div class="mdl-cell mdl-cell--3-col new-bands">
@@ -8,7 +12,7 @@
     <button class="mdl-button mdl-js-button mdl-button--raised">See all bands</button>
   </div>
   <div class="main-bands mdl-cell mdl-cell--6-col">
-    <img src="assets/img/erased-tapes-featured-6004.jpg">
+    <img src="http://res.cloudinary.com/elcolectivo/image/upload/c_scale,w_600/v1460441205/ogszmlqoruktrxafwozv.jpg">
     <div>
       <h3>Ave Negra</h3>
       <a ui-sref="bandPage({band_name: 'Ave Negra'})">+info</a>
@@ -16,17 +20,17 @@
   </div>
   <div class="mdl-cell mdl-cell--3-col">
     <div class="main-bands">
-      <img src="assets/img/alex-g-porches-your-friend-600.jpg">
+      <img src="http://res.cloudinary.com/elcolectivo/image/upload/c_scale,w_300/v1460429496/ffoqposy4nfg3xrhvpzz.jpg">
       <div>
-        <h3>Las Robertas</h3>
-        <a ui-sref="bandPage({band_name: 'Las Robertas'})">+info</a>
+        <h3>Infibeat</h3>
+        <a ui-sref="bandPage({band_name: 'Infibeat'})">+info</a>
       </div>
     </div>
     <div class="main-bands">
-      <img src="assets/img/deep-sea-diver-600-1.jpg">
+      <img src="http://res.cloudinary.com/elcolectivo/image/upload/c_scale,w_300/v1460487000/e4dqybygan7ndsltiggw.jpg">
       <div>
-        <h3>Monte</h3>
-        <a href="">+info</a>
+        <h3>Sight of Emptiness</h3>
+        <a ui-sref="bandPage({band_name: 'Sight of Emptiness'})">+info</a>
       </div>
     </div>
   </div>
@@ -45,7 +49,7 @@
     </ul>
     <div class="mdl-grid">
       <div class="box-album mdl-cell mdl-cell--3-col" ng-repeat="album in main.filtered">
-        <div class="album-img"><img src="{{album.cover}}"></div>
+        <div class="album-img"><img ng-src="http://res.cloudinary.com/elcolectivo/image/upload/c_scale,w_180/{{album.cover}}"></div>
         <h4><a ui-sref="albumPage({album_name: album.name})" class="album-name">{{album.name}}</a></h4>
         <p><a ui-sref="bandPage({band_name: album.owner[0].name})">{{album.owner[0].name}}</a></p>
         <span>{{album.genders[0].name}}</span>
@@ -57,13 +61,13 @@
     <div class="discover-box">
       <div class="discover-play">
         <audio id="demo" src="https://raw.githubusercontent.com/labnol/files/master/sound.mp3"></audio>
-        <img src="assets/img/a1653378949_2.jpg" alt="">
+        <img src="http://res.cloudinary.com/elcolectivo/image/upload/c_scale,w_400/v1460487139/zgcunkhmw5dgxraogofl.jpg">
         <button id="button-music" class="mdl-button" onclick="document.getElementById('demo').play()"><i id="icon-music" class="material-icons icon">play_arrow</i></button>
         <progress id="seekbar" value="0" max="1"></progress>
         <span class="currentTime" id="currentTime" >0 : 00</span><span class="duration" id="duration"> / 2 : 30</span>
       </div>
-      <h3 class="album-name">Spirit Phone</h3>
-      <p>form the album <a href="">Lemon</a> by <a href="">Monte</a></p>
+      <h3 class="album-name">Essence</h3>
+      <p>form the album <a href="">Instincts</a> by <a href="">Sight of Emptiness</a></p>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti iste magnam accusamus nobis nam expedita corporis iusto pariatur facere incidunt consectetur odio assumenda, nesciunt saepe eaque commodi, delectus, maiores ullam?</p>
       <span>rock</span>
     </div>

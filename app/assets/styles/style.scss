@@ -1,0 +1,20 @@
+//
+
+// Parciales
+
+@import "./app/assets/partials/variables";
+@import "./app/assets/partials/mixins";
+@import "./app/assets/partials/placeholders";
+@import "./app/assets/partials/base";
+@import "./app/assets/partials/layout";
+
+// Modules
+@import "./app/common/navbar/navbar";
+@import "./app/common/footer/footer";
+@import "./app/common/bandPage/bandPage";
+@import "./app/common/playMusic/playMusic";
+@import "./app/main/main";
+@import "./app/newBand/newBand";
+@import "./app/bandUser/bandUser";
+
+@import "./app/assets/partials/form";

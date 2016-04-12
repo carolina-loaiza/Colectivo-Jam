@@ -3,7 +3,7 @@
     <h4 class="title-red title-album">Albums</h4>
     <div class="mdl-grid">
       <div class="box-album mdl-cell mdl-cell--3-col" ng-repeat="album in band.data.albums">
-        <div class="album-img"><img src="{{album.cover}}"></div>
+        <div class="album-img"><img ng-src="http://res.cloudinary.com/elcolectivo/image/upload/c_scale,w_180/{{album.cover}}"></div>
         <h4><a ui-sref="albumPage({album_name: album.name})" class="album-name">{{album.name}}</a></h4>
         <span>{{album.genres[0].name}}</span>
       </div>
@@ -12,7 +12,7 @@
   <div class="mdl-cell mdl-cell--4-col">
     <div class="discover-box">
       <div class="discover-play">
-        <img src="{{band.data.image}}" alt="">
+        <img ng-src="http://res.cloudinary.com/elcolectivo/image/upload/c_scale,w_400/{{band.data.image}}" alt="">
       </div>
       <h3 class="album-name">{{band.data.name}}</h3>
       <p>{{band.data.intro}}</p>
