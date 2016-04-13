@@ -16,10 +16,9 @@
         .success(function(data) {
             vm.albumList = data;
             vm.filtered = vm.albumList;
-            console.log(data);
         })
         .error(function(err) {
-            console.log(err);
+            var error = err;
         });
 
         vm.genreFilter = function(prop, value) {

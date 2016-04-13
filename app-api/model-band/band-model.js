@@ -46,22 +46,4 @@ bandSchema.methods.comparePassword = function(candidatePassword, cb) {
     });
 };
 
-/*
-Token / jwt token
-bandSchema.methods.generateJwt = function() {
-    var expiry = new Date();
-    expiry.setDate(expiry.getDate() + 7);
-
-    return jwt.sign({
-        .
-        .
-        .
-        exp: parseInt(expiry.getTime() / 1000)
-    }, SECRET);
-}
-
-Password
-Password Local
-
- */
 module.exports = mongoose.model('Band', bandSchema);

@@ -11,12 +11,12 @@ var app = express();
 
 var port = process.env.PORT || 3000;
 
-//Mongo DB Conection
+//Mongo DB Conection//
 // Local dev
-mongoose.connect('mongodb://localhost/colectivo-jam');
+//mongoose.connect('mongodb://localhost/colectivo-jam');
 //
 // Heroku
-//mongoose.connect('mongodb://admin:admin@ds019028.mlab.com:19028/colectivo-jam');
+mongoose.connect('mongodb://admin:admin@ds023570.mlab.com:23570/elcolectivo');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

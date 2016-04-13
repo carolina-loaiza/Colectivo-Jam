@@ -12,7 +12,6 @@
       var files = {};
 
       vm.datos = reqService.userData();
-      console.log(vm.datos);
 
       vm.album = {};
       vm.listGenres = [];
@@ -60,7 +59,6 @@
         vm.album.owner = vm.datos._id;
         vm.album.song = files;
         vm.album.cover = coverAlbum;
-        console.log(vm.album);
 
         reqService.createAlbum(vm.album)
         .then(function(response) {
@@ -68,13 +66,10 @@
             id : vm.datos._id,
             album : response.data._id
           };
-          console.log(ids);
           return reqService.addAlbum(ids);
         })
         .then(function(response) {
           var data = response.data;
-          console.log(data);
-          //$state.go(/)
         })
       }
     }

@@ -32,7 +32,6 @@ module.exports.getData = function(req, res) {
 };
 
 module.exports.getAll = function(req, res) {
-    console.log(req.body);
     Album.find().populate('owner', 'name').exec(function(err, album) {
         if(album === null) {
             res.status(500).send("Not found");

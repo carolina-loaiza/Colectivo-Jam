@@ -60,7 +60,7 @@ gulp.task('nodemon', function (cb) {
 });
 
 gulp.task('concat', function() {
-  return gulp.src(bowerFiles(), {read: false}), { name: 'bower' }
+  return gulp.src('./app/bower_components/**/*.min.js')
     .pipe(concat('vendor.js'))
     .pipe(gulp.dest('./app/dist/'));
 });

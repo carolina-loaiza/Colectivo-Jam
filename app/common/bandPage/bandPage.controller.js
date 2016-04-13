@@ -15,7 +15,7 @@
         vm.data = data;
       })
       .error(function(err) {
-        console.log(err);
+        var error = err;
       });
     }
 })();

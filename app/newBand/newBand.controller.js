@@ -31,8 +31,7 @@
             })
             .success(function(data) {
                 bandImage = data;
-                bandImage = bandImage.substring(49)
-                console.log(bandImage)
+                bandImage = bandImage.substring(49);
             });
         }
 
@@ -47,7 +46,7 @@
                 reqService.sessionStorage(data);
             })
             .error(function(err) {
-                console.log(err);
+                var error = err;
             });
             
         };
