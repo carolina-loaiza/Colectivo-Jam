@@ -4,3 +4,9 @@ El colectivo is a single page application about Costa Rica's bands, you can logi
 
 The website is hosted in Heroku and I use MongoDB as database with mLab (MongoDB hosting platform), 
 Node.js with Express as backend and AngularJS in the frontend.
+
+* Link to web site
+
+```sh
+http://elcolectivo.herokuapp.com
+```
