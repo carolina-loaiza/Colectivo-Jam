@@ -1,24 +1,23 @@
 <section class="background">
-  <img src="assets/img/ok2.jpg" alt="">
   <div class="intro">
     <h2 class="logo">elColectivo</h2>
     <p>a place to discover Costa Rica's music.</p>
   </div>
 </section>
 <div class="mdl-grid main-bands-container">
-  <div class="mdl-cell mdl-cell--3-col new-bands">
+  <div class="mdl-cell mdl-cell--3-col mdl-cell--12-col-tablet mdl-cell--12-col-phone new-bands">
     <h2>Explore <span>New</span> Bands</h2>
     <p>vel at consequatur tempore eius officiis harum eos veniam quod totam enim nostrum nesciunt.</p>
     <button class="mdl-button mdl-js-button mdl-button--raised">See all bands</button>
   </div>
-  <div class="main-bands mdl-cell mdl-cell--6-col">
+  <div class="main-bands mdl-cell mdl-cell--6-col mdl-cell--6-col-tablet mdl-cell--12-col-phone">
     <img src="http://res.cloudinary.com/elcolectivo/image/upload/c_scale,w_600/v1460441205/ogszmlqoruktrxafwozv.jpg">
     <div>
       <h3>Ave Negra</h3>
       <a ui-sref="bandPage({band_name: 'Ave Negra'})">+info</a>
     </div>
   </div>
-  <div class="mdl-cell mdl-cell--3-col">
+  <div class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet mdl-cell--12-col-phone">
     <div class="main-bands">
       <img src="http://res.cloudinary.com/elcolectivo/image/upload/c_scale,w_300/v1460429496/ffoqposy4nfg3xrhvpzz.jpg">
       <div>
@@ -36,7 +35,7 @@
   </div>
 </div>
 <div class="mdl-grid">
-  <div class="mdl-cell mdl-cell--8-col">
+  <div class="mdl-cell mdl-cell--8-col  mdl-cell--12-col-phone">
     <h2 class="title-red">Recent Albums</h2>
     <ul class="filter">
       <li class="filter-title">Filter by Genres</li>
@@ -48,7 +47,7 @@
       </li>
     </ul>
     <div class="mdl-grid">
-      <div class="box-album mdl-cell mdl-cell--3-col" ng-repeat="album in main.filtered">
+      <div class="box-album mdl-cell mdl-cell--3-col mdl-cell--12-col-phone" ng-repeat="album in main.filtered">
         <div class="album-img"><img ng-src="http://res.cloudinary.com/elcolectivo/image/upload/c_scale,w_180/{{album.cover}}"></div>
         <h4><a ui-sref="albumPage({album_name: album.name})" class="album-name">{{album.name}}</a></h4>
         <p><a ui-sref="bandPage({band_name: album.owner[0].name})">{{album.owner[0].name}}</a></p>

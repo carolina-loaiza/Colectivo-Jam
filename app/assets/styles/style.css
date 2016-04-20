@@ -61,9 +61,6 @@ ul {
   padding: 0;
   list-style: none; }
 
-.background {
-  margin-bottom: 4%; }
-
 .button {
   background: #AF615F;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -110,6 +107,10 @@ ul {
 
 .mdl-layout__content {
   position: relative; }
+
+.mdl-layout__drawer-button .material-icons {
+  color: #D65350;
+  font-size: 40px; }
 
 .header {
   background: #842C2A;
@@ -165,8 +166,10 @@ footer {
   background: #842C2A;
   text-align: center;
   color: #fff;
-  padding-top: 5px;
-  margin-top: 100px; }
+  padding-top: 5px; }
+  @media (min-width: 720px) {
+    footer {
+      margin-top: 100px; } }
 
 .genres-item {
   color: #A3A29A;
@@ -224,27 +227,36 @@ progress[value]::-webkit-progress-value {
     font-size: 50px;
     color: #fff; }
 
+.background {
+  background-image: url("../img/ok2.jpg");
+  background-size: cover;
+  overflow: hidden; }
+  @media (min-width: 720px) {
+    .background {
+      margin-bottom: 4%; } }
+
 .intro {
-  position: absolute;
-  top: 10%;
-  left: 25%;
-  color: #fff; }
+  overflow: hidden;
+  color: #fff;
+  margin: 30% auto; }
+  @media (min-width: 720px) {
+    .intro {
+      margin: 16% auto;
+      min-width: 377px;
+      width: 41%; } }
   .intro h2 {
     font-size: 5rem;
-    width: 78%;
+    width: 377px;
     line-height: 72px;
     background: #000; }
   .intro p {
     background: #000;
     padding: 12px 6px;
     font-size: 2rem;
-    width: 100%;
-    margin-left: 38%; }
+    text-align: right; }
 
 .album-img {
   margin-bottom: 10px; }
-  .album-img img {
-    max-height: 180px; }
 
 .album-name {
   font-weight: bold; }
@@ -264,9 +276,14 @@ progress[value]::-webkit-progress-value {
     position: absolute;
     bottom: 0;
     color: #000;
-    opacity: 0;
-    -webkit-transition: opacity .5s ease-in-out;
-    transition: opacity .5s ease-in-out; }
+    background: #EFEDE4;
+    padding: 2%; }
+    @media (min-width: 720px) {
+      .main-bands div {
+        background: none;
+        opacity: 0;
+        -webkit-transition: opacity .5s ease-in-out;
+        transition: opacity .5s ease-in-out; } }
   .main-bands:hover > img {
     opacity: .3; }
   .main-bands:hover > div {
@@ -299,35 +316,48 @@ progress[value]::-webkit-progress-value {
   .filter-item:hover {
     border-bottom: 2px dashed; }
 
-.new-bands span {
-  font-size: 3.5rem;
-  color: #D65350;
-  display: block;
-  padding: 5px 0; }
-  .new-bands span:before, .new-bands span:after {
-    content: ' ';
-    display: inline-block;
-    border: 4px dashed;
-    vertical-align: middle;
-    margin: 0px 8px; }
-
-.new-bands button {
-  background: #e28482;
-  color: #fff; }
-
-.new-bands p {
-  margin: 40px 0 25px; }
+.new-bands {
+  text-align: center; }
+  @media (min-width: 720px) {
+    .new-bands {
+      text-align: left; } }
+  .new-bands span {
+    font-size: 3.5rem;
+    color: #D65350;
+    padding: 5px 0; }
+    @media (min-width: 720px) {
+      .new-bands span {
+        display: block; } }
+    .new-bands span:before, .new-bands span:after {
+      content: ' ';
+      display: inline-block;
+      border: 4px dashed;
+      vertical-align: middle;
+      margin: 0px 8px; }
+  .new-bands button {
+    background: #e28482;
+    color: #fff; }
+  .new-bands p {
+    margin: 40px 0 25px; }
 
 .signUp-section {
-  width: 680px;
+  max-width: 680px;
   margin: 25px auto;
   overflow: hidden;
   -webkit-transition: all 5s ease-in-out;
   transition: all 5s ease-in-out; }
   .signUp-section form {
-    width: 500px; }
+    max-width: 500px;
+    padding: 16px; }
+    @media (min-width: 720px) {
+      .signUp-section form {
+        padding: 0; } }
   .signUp-section .form-title {
-    color: #D65350; }
+    color: #D65350;
+    margin: 10% 5% 0; }
+    @media (min-width: 720px) {
+      .signUp-section .form-title {
+        margin: 0; } }
   .signUp-section .form-input-label {
     color: rgba(80, 78, 78, 0.5); }
   .signUp-section .form-input {
@@ -351,7 +381,8 @@ progress[value]::-webkit-progress-value {
   margin-bottom: 15%; }
 
 .file-upload {
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   margin: 15px auto;
   position: relative;
   border: 3px dashed #A09E9E;

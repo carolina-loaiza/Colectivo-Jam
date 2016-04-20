@@ -14,13 +14,12 @@
       <header id="header" ng-class="{'showLogin': nav.isActive}" class="header mdl-layout__header mdl-layout__header--scroll">
         <main-nav></main-nav>
       </header>
-      <div class="mdl-layout__drawer mdl-layout--small-screen-only">
-        <span class="mdl-layout-title">Title</span>
+      <div class="mdl-layout__drawer mdl-layout--small-screen-only small-screen-menu">
+        <span class="mdl-layout-title">elColectivo</span>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" ui-sref="main">Home</a>
+          <a class="mdl-navigation__link" ui-sref="signup">Sign In</a>
+          <a class="mdl-navigation__link" href="">Log In</a>
         </nav>
       </div>
       <div ui-view class="mdl-layout__content"></div>

@@ -1,16 +1,25 @@
 .signUp-section {
-  width: 680px;
+  max-width: 680px;
   margin: 25px auto;
   overflow: hidden;
   -webkit-transition: all 5s ease-in-out;
   transition: all 5s ease-in-out;
-
+  
   form {
-    width: 500px;
+    max-width: 500px;
+    padding: 16px;
+
+    @media (min-width: $min-width) {
+      padding: 0;
+    }
   }
 
   .form-title {
     color: $mainColor;
+    margin: 10% 5% 0;
+    @media (min-width: $min-width) {
+      margin: 0;
+    }
   }
 
   .form-input-label {
@@ -36,7 +45,8 @@
 }
 
 .file-upload {
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   margin: 15px auto;
   position: relative;
   border: 3px dashed $inActive;

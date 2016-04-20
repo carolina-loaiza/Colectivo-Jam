@@ -1,12 +1,27 @@
+.background {
+  background-image: url("../img/ok2.jpg");
+  background-size: cover;
+  overflow: hidden;
+
+  @media (min-width: $min-width) {
+    margin-bottom: 4%;
+  }
+}
+
 .intro {
-  position: absolute;
-  top: 10%;
-  left: 25%;
+  overflow: hidden;
   color: #fff;
+  margin: 30% auto;
   
+  @media (min-width: $min-width) {
+    margin: 16% auto;
+    min-width: 377px;
+    width: 41%;
+  }
+
   h2 {
     font-size: 5rem;
-    width: 78%;
+    width: 377px;
     line-height: 72px;
     background: #000;
   }
@@ -15,17 +30,12 @@
     background: #000;
     padding: 12px 6px;
     font-size: 2rem;
-    width: 100%;
-    margin-left: 38%; 
+    text-align: right;
   }
 }
 
 .album-img{
   margin-bottom: 10px;
-
-  img {
-    max-height: 180px;
-  }
 }
 
 .album-name {
@@ -51,10 +61,16 @@
     position: absolute;
     bottom: 0;
     color: #000;
-    opacity: 0;
-    -webkit-transition: opacity .5s ease-in-out;
-    -o-transition: opacity .5s ease-in-out;
-    transition: opacity .5s ease-in-out;
+    background: #EFEDE4;
+    padding: 2%;
+
+    @media (min-width: $min-width) {
+      background: none;
+      opacity: 0;
+      -webkit-transition: opacity .5s ease-in-out;
+      -o-transition: opacity .5s ease-in-out;
+      transition: opacity .5s ease-in-out;
+    }
   }
 
   &:hover > img{
@@ -104,11 +120,20 @@
 }
 
 .new-bands {
+  text-align: center;
+
+  @media (min-width: $min-width) {
+    text-align: left;
+  }
+
   span {
     font-size: 3.5rem;
     color: $mainColor;
-    display: block;
     padding: 5px 0;
+    
+    @media (min-width: $min-width) {
+      display: block;
+    }
 
     &:before, &:after {
       content: ' ';
