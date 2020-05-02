@@ -2,8 +2,8 @@
   <div class="mdl-cell mdl-cell--8-col">
     <h4 class="title-red title-album">Albums</h4>
     <div class="mdl-grid">
-      <div class="box-album mdl-cell mdl-cell--3-col" ng-repeat="album in band.data.albums">
-        <div class="album-img"><img ng-src="http://res.cloudinary.com/elcolectivo/image/upload/c_scale,w_180/{{album.cover}}"></div>
+      <div class="box-album mdl-cell mdl-cell--3-col" ng-repeat="album in band.data.albums track by $index">
+        <div class="album-img"><img ng-src="https://res.cloudinary.com/testingapps/image/upload/c_scale,w_180/{{album.cover}}"></div>
         <h4><a ui-sref="albumPage({album_name: album.name})" class="album-name">{{album.name}}</a></h4>
         <span>{{album.genres[0].name}}</span>
       </div>
@@ -12,12 +12,12 @@
   <div class="mdl-cell mdl-cell--4-col">
     <div class="discover-box">
       <div class="discover-play">
-        <img ng-src="http://res.cloudinary.com/elcolectivo/image/upload/c_scale,w_400/{{band.data.image}}" alt="">
+        <img ng-src="https://res.cloudinary.com/testingapps/image/upload/c_scale,w_400/{{band.data.image}}" alt="">
       </div>
       <h3 class="album-name">{{band.data.name}}</h3>
       <p>{{band.data.intro}}</p>
       <ul>
-        <li class="genres-item" ng-repeat="gender in band.data.genres">{{gender.name}}</li>
+        <li class="genres-item" ng-repeat="gender in band.data.genres track by $index">{{gender.name}}</li>
       </ul>
       <ul class="link-list">
         <li ng-show="band.data.links.facebook"><a class="icon-link" href="{{band.data.links.facebook}}"><i class="fa fa-facebook-official"></i></a></li>

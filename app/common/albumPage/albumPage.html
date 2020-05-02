@@ -6,7 +6,7 @@
         <h2 class="title-red title-album">{{album.data.name}}</h2>
         <ul class="list-tracks">
             <li class="title-tracks">Tracks</li>
-            <li ng-repeat="song in album.data.tracks">
+            <li ng-repeat="song in album.data.tracks track by $index">
                 <span>{{$index + 1}} - </span>
                 {{song.name}}
             </li>

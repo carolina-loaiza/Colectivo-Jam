@@ -26,7 +26,7 @@
           <button ng-click="bandUser.getListSongs(bandUser.newSong)" class=""><i class="material-icons icon-form-add">add_box</i></button>
         </label>
         <ul>
-          <li class="song-item" ng-repeat="song in bandUser.listSongs">
+          <li class="song-item" ng-repeat="song in bandUser.listSongs track by $index">
             <span>{{$index + 1}} - </span>
             {{song.name}}
             <button ng-click="bandUser.deleteSong(song)">
@@ -43,7 +43,7 @@
         <input ng-model="bandUser.customChoose" value="" type="text" class="form-basic" placeholder="Add a genre"/>
         <button ng-click="bandUser.getGenres(bandUser.customChoose)" class=""><i class="material-icons icon-form-add">add_box</i></button>
         <ul>
-          <li ng-repeat="gender in bandUser.listGenres">{{gender.name}}
+          <li ng-repeat="gender in bandUser.listGenres track by $index">{{gender.name}}
             <button ng-click="bandUser.deleteGender(gender)">
               <i class="material-icons icon-form-delete">clear</i>
             </button>

@@ -11,7 +11,7 @@
     <button class="mdl-button mdl-js-button mdl-button--raised">See all bands</button>
   </div>
   <div class="main-bands mdl-cell mdl-cell--6-col mdl-cell--6-col-tablet mdl-cell--12-col-phone">
-    <img src="http://res.cloudinary.com/elcolectivo/image/upload/c_scale,w_600/v1460441205/ogszmlqoruktrxafwozv.jpg">
+    <img src="https://res.cloudinary.com/testingapps/image/upload/c_scale,w_600/v1460441205/ogszmlqoruktrxafwozv.jpg">
     <div>
       <h3>Ave Negra</h3>
       <a ui-sref="bandPage({band_name: 'Ave Negra'})">+info</a>
@@ -19,14 +19,14 @@
   </div>
   <div class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet mdl-cell--12-col-phone">
     <div class="main-bands">
-      <img src="http://res.cloudinary.com/elcolectivo/image/upload/c_scale,w_300/v1460429496/ffoqposy4nfg3xrhvpzz.jpg">
+      <img src="https://res.cloudinary.com/testingapps/image/upload/c_scale,w_300/v1460429496/ffoqposy4nfg3xrhvpzz.jpg">
       <div>
         <h3>Infibeat</h3>
         <a ui-sref="bandPage({band_name: 'Infibeat'})">+info</a>
       </div>
     </div>
     <div class="main-bands">
-      <img src="http://res.cloudinary.com/elcolectivo/image/upload/c_scale,w_300/v1460487000/e4dqybygan7ndsltiggw.jpg">
+      <img src="https://res.cloudinary.com/testingapps/image/upload/c_scale,w_300/v1460487000/e4dqybygan7ndsltiggw.jpg">
       <div>
         <h3>Sight of Emptiness</h3>
         <a ui-sref="bandPage({band_name: 'Sight of Emptiness'})">+info</a>
@@ -42,13 +42,13 @@
       <li class="filter-item">
         <span ng-click="main.genreFilter()">All</span>
       </li>
-      <li class="filter-item" ng-repeat="filter in main.filterList">
+      <li class="filter-item" ng-repeat="filter in main.filterList track by $index">
         <span ng-click="main.genreFilter('genres', filter.name)">{{filter.name}}</span>
       </li>
     </ul>
     <div class="mdl-grid">
-      <div class="box-album mdl-cell mdl-cell--3-col mdl-cell--12-col-phone" ng-repeat="album in main.filtered">
-        <div class="album-img"><img ng-src="http://res.cloudinary.com/elcolectivo/image/upload/c_scale,w_180/{{album.cover}}"></div>
+      <div class="box-album mdl-cell mdl-cell--3-col mdl-cell--12-col-phone" ng-repeat="album in main.filtered track by $index">
+        <div class="album-img"><img ng-src="https://res.cloudinary.com/testingapps/image/upload/c_scale,w_180/{{album.cover}}"></div>
         <h4><a ui-sref="albumPage({album_name: album.name})" class="album-name">{{album.name}}</a></h4>
         <p><a ui-sref="bandPage({band_name: album.owner[0].name})">{{album.owner[0].name}}</a></p>
         <span>{{album.genders[0].name}}</span>
@@ -60,7 +60,7 @@
     <div class="discover-box">
       <div class="discover-play">
         <audio id="demo" src="https://raw.githubusercontent.com/labnol/files/master/sound.mp3"></audio>
-        <img src="http://res.cloudinary.com/elcolectivo/image/upload/c_scale,w_400/v1460487139/zgcunkhmw5dgxraogofl.jpg">
+        <img src="https://res.cloudinary.com/testingapps/image/upload/c_scale,w_400/v1460487139/zgcunkhmw5dgxraogofl.jpg">
         <button id="button-music" class="mdl-button" onclick="document.getElementById('demo').play()"><i id="icon-music" class="material-icons icon">play_arrow</i></button>
         <progress id="seekbar" value="0" max="1"></progress>
         <span class="currentTime" id="currentTime" >0 : 00</span><span class="duration" id="duration"> / 2 : 30</span>

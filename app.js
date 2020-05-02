@@ -1,38 +1,13 @@
 'use strict';
 
-var dotenv = require('dotenv');
-dotenv.load();
 var express = require('express');
-var mongoose = require('mongoose');
-var morgan = require('morgan');
-var bodyParser = require('body-parser');
-var routes = require('./app-api/routes.js');
 var app = express();
+var path = require('path');
 
-var port = process.env.PORT || 3000;
+app.use(express.static(__dirname + '/app'));
 
-//Mongo DB Conection//
-// Local dev
-//mongoose.connect('mongodb://localhost/colectivo-jam');
-//
-// Heroku
-mongoose.connect('mongodb://admin:admin@ds023570.mlab.com:23570/elcolectivo');
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log('connection succese!');
+app.get('*', function(req, res){
+  res.sendfile(__dirname + '/app/index.html');
 });
 
-app.use(morgan('dev'))
-app.use(express.static('app'));
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-
-app.use('/bands', routes);
-
-/*
-* Listen
-*/
-app.listen(port);
-console.log("App listening on port " + port);
+app.listen(8080);

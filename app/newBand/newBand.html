@@ -41,7 +41,7 @@
       <input ng-model="newBand.customChoose" value="" type="text" class="form-basic" placeholder="Add a genre"/>
       <button ng-click="newBand.getGenres(newBand.customChoose)" class=""><i class="material-icons icon-form-add">add_box</i></button>
       <ul>
-        <li ng-repeat="gender in newBand.listGenres">{{gender.name}}
+        <li ng-repeat="gender in newBand.listGenres track by $index">{{gender.name}}
           <button ng-click="newBand.deleteGender(gender)">
             <i class="material-icons icon-form-delete">clear</i>
           </button>
