@@ -7,8 +7,6 @@ cloudinary.config({
 });
  
 module.exports.uploadImage = function(req, res) {
-    console.log(req.body)
-    console.log(req.files)
     if(req.files.file) {
         cloudinary.uploader.upload(req.files.file.path, function(result) {
             if (result.url) {

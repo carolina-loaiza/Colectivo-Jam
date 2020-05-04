@@ -5,7 +5,6 @@ var Album = require('./album-model.js');
 
 // Create Album
 module.exports.create = function(req, res) {
-    console.log(req.body)
     var entry = new Album({
         name: req.body.name,
         owner: req.body.owner,

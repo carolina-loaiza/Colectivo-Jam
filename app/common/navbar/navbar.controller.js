@@ -29,7 +29,6 @@
             reqService.sessionStorage(data);
         })
         .error(function(err) {
-            console.log(err);
             vm.invalid = true;
         });
     };

@@ -20,7 +20,6 @@ module.exports.create = function(req, res) {
 };
 // Log In Band
 module.exports.login = function(req, res) {
-    console.log(req.body);
     Band.findOne({name: req.body.name})
         .populate('albums')
         .exec(function(err, user) {
